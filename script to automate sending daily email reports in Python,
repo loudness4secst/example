@@ -1,0 +1,36 @@
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import datetime
+
+def send_email(subject, body, to_email):
+    from_email = 'your_email@example.com'  # Enter your email address
+    password = 'your_password'  # Enter your email password
+
+    msg = MIMEMultipart()
+    msg['From'] = from_email
+    msg['To'] = to_email
+    msg['Subject'] = subject
+
+    msg.attach(MIMEText(body, 'plain'))
+
+    server = smtplib.SMTP('smtp.example.com', 587)  # Enter your SMTP server address and port
+    server.starttls()
+    server.login(from_email, password)
+    server.sendmail(from_email, to_email, msg.as_string())
+    server.quit()
+
+def generate_report():
+    # Your report generation logic goes here
+    today = datetime.date.today()
+    report = f"Daily Report - {today}\n\n"  # Example report content
+    return report
+
+def main():
+    report = generate_report()
+    subject = "Daily Report"
+    to_email = "recipient@example.com"  # Enter the recipient's email address
+    send_email(subject, report, to_email)
+
+if __name__ == "__main__":
+    main()
