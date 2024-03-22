@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sticky Header Example</title>
+<style>
+  /* Sticky header styles */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+  /* Content styles to simulate scrolling */
+  .content {
+    height: 2000px;
+    padding-top: 50px; /* Adjust based on height of sticky header */
+  }
+</style>
+</head>
+<body>
+
+<header id="header" class="sticky">
+  <!-- Your header content goes here -->
+  <h1>Sticky Header</h1>
+</header>
+
+<div class="content">
+  <!-- Your page content goes here -->
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget nulla nec nisl placerat rhoncus. Donec fringilla lorem ut posuere malesuada. Sed sit amet urna vel est facilisis consequat.</p>
+</div>
+
+<script>
+  // JavaScript to add/remove sticky class based on scroll position
+  window.onscroll = function() {stickyHeader()};
+  var header = document.getElementById("header");
+  var sticky = header.offsetTop;
+
+  function stickyHeader() {
+    if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  }
+</script>
+
+</body>
+</html>
