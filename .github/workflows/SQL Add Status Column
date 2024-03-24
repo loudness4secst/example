@@ -1,0 +1,6 @@
+ALTER TABLE orders
+ADD COLUMN status VARCHAR(10) DEFAULT 'PENDING';
+
+UPDATE orders
+SET status = 'COMPLETE'
+WHERE completed_at IS NOT NULL;
