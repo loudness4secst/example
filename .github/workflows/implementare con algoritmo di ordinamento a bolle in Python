@@ -1,0 +1,15 @@
+def bubbleSort(array):
+    n = len(array)
+    for j in range(n - 1):
+        swapped = False
+        for i in range(n - 1):
+            if array[i] > array[i + 1]:
+                array[i], array[i + 1] = array[i + 1], array[i]
+                swapped = True
+        if not swapped:
+            break
+
+# Esempio di utilizzo
+array_numeri = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+bubbleSort(array_numeri)
+print("Array ordinato:", array_numeri)
