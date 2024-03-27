@@ -1,0 +1,30 @@
+def ricerca_binaria(lista, valore_ricerca):
+    limite_inferiore = 0
+    limite_superiore = len(lista) - 1
+    trovato = False
+
+    while limite_inferiore <= limite_superiore and not trovato:
+        indice_medio = (limite_inferiore + limite_superiore) // 2
+        valore_medio = lista[indice_medio]
+
+        if valore_medio == valore_ricerca:
+            trovato = True
+        elif valore_medio < valore_ricerca:
+            limite_inferiore = indice_medio + 1
+        else:
+            limite_superiore = indice_medio - 1
+
+    if trovato:
+        return indice_medio
+    else:
+        return -1
+
+# Esempio di utilizzo
+mia_lista_ordinata = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+valore_da_trovare = 90
+
+risultato = ricerca_binaria(mia_lista_ordinata, valore_da_trovare)
+if risultato != -1:
+    print(f"Il valore {valore_da_trovare} si trova all'indice {risultato}.")
+else:
+    print(f"Il valore {valore_da_trovare} non è presente nella lista.")
