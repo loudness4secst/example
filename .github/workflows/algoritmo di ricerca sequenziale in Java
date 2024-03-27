@@ -1,0 +1,23 @@
+public class RicercaSequenziale {
+
+    public static int ricercaSequenziale(int[] array, int valoreCercato) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == valoreCercato) {
+                return i; // Restituisce l'indice dell'elemento trovato
+            }
+        }
+        return -1; // Restituisce -1 se l'elemento non è presente nell'array
+    }
+
+    public static void main(String[] args) {
+        int[] miaLista = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+        int valoreDaTrovare = 90;
+
+        int posizione = ricercaSequenziale(miaLista, valoreDaTrovare);
+        if (posizione != -1) {
+            System.out.println("Il valore " + valoreDaTrovare + " si trova all'indice " + posizione + ".");
+        } else {
+            System.out.println("Il valore " + valoreDaTrovare + " non è presente nella lista.");
+        }
+    }
+}
